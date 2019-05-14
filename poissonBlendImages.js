@@ -2,6 +2,7 @@
 
 
 let canv = document.getElementById("img1Canvas");
+// let base_size = {width:canv.width, height:canv.height};
 
 function initializeResultCtx(img, result_ctx, base_size) {
     let result_pixels = result_ctx.getImageData(0, 0, base_size.width, base_size.height);
@@ -34,6 +35,8 @@ function adjustBlendPosition(src_ctx, mask_ctx, result_ctx, base_size) {
     result_ctx.putImageData(result_pixels, 0, 0);
 }
 
+//from: http://takuti.me/dev/poisson/demo/
+
 function poissonBlendImages(newcanvas, srccanvas, mask_data, finalcanvas, refImage, base_size){
     base_size.width  =  srccanvas.width;
     base_size.height = 	srccanvas.height;
@@ -50,8 +53,10 @@ function poissonBlendImages(newcanvas, srccanvas, mask_data, finalcanvas, refIma
     let src_pixels = src_ctx.getImageData(0, 0, srccanvas.width, srccanvas.height);
     let mask_pixels = mask_ctx.getImageData(0, 0, srccanvas.width, srccanvas.height);
 
+    //The inintial layer to blend
+    // let result_pixels = base_ctx.getImageData(0, 0, srccanvas.width, srccanvas.height);
     let result_pixels = result_ctx.getImageData(0, 0, srccanvas.width, srccanvas.height);
-
+    // saf()
     let is_mixing_gradients = false;
 
     let dx, absx, previous_epsilon=1.0;
@@ -61,14 +66,17 @@ function poissonBlendImages(newcanvas, srccanvas, mask_data, finalcanvas, refIma
         dx=0; absx=0;
         for(let y=1; y<base_size.height-1; y++) {
             for(let x=1; x<base_size.width-1; x++) {
-
+                // p is current pixel
+                // rgba r=p+0, g=p+1, b=p+2, a=p+3
                 let p = (y*base_size.width+x)*4;
 
+                // Mask area is painted rgba(0,255,0,1.0)
                 if(mask_pixels.data[p+0]==0 && mask_pixels.data[p+1]==255 &&
                     mask_pixels.data[p+2]==0 && mask_pixels.data[p+3]==255) {
 
                     let p_offseted = p + 4*(blend_position_offset.y*base_size.width+blend_position_offset.x);
 
+                    // q is array of connected neighbors
                     let q = [((y-1)*base_size.width+x)*4, ((y+1)*base_size.width+x)*4,
                         (y*base_size.width+(x-1))*4, (y*base_size.width+(x+1))*4];
                     let num_neighbors = q.length;
@@ -106,7 +114,7 @@ function poissonBlendImages(newcanvas, srccanvas, mask_data, finalcanvas, refIma
         cnt++;
         let epsilon = dx/absx;
         if(!epsilon || previous_epsilon-epsilon === 0) break; // convergence
-
+        // if( cnt > 1000) break;
         else previous_epsilon = epsilon;
     } while(true);
 
