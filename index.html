@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="style/canvas.css" />
+    <link rel="stylesheet" href="style/File-upload-button.css" />
+    <link rel="stylesheet" href="style/common.css" />
+  </head>
+  <body>
+    <label
+      for="File-upload-button__to-hide"
+      class="File-upload-button Header__file-upload-button"
+      >Upload image</label
+    >
+    <input id="File-upload-button__to-hide" type="file" multiple /><canvas
+      id="img1Canvas"
+    ></canvas
+    ><canvas id="img2Canvas"></canvas><canvas id="maskCanvas"></canvas
+    ><canvas id="resultCanvas"></canvas>
+<!--    <canvas id="myCanvas" width="1500" height="1000"></canvas>-->
+    <script src="helpers/jsfeat.js"></script>
+    <script src="helpers/numeric-1.2.6.min.js"></script>
+    <script src="utils.js"></script>
+    <script src="findDifference.js"></script>
+    <script src="findBlobs.js"></script>
+    <script src="position.js"></script>
+    <script src="delegate.js"></script>
+    <script src="poissonBlendImages.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
