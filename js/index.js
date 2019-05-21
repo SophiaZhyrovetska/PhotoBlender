@@ -3,13 +3,15 @@ let refImage={};
 let otherImage={};
 let maskCanvas = document.getElementById("maskCanvas");
 let resultCanvas = document.getElementById("resultCanvas");
+let img1Canvas = document.getElementById("img1Canvas");
+let img2Canvas = document.getElementById("img2Canvas");
 let img1 = new Image();
 let img2 = new Image();
 const canvasDefaultWidth = 654;
 
 document.getElementById("File-upload-button__to-hide").onchange = function(e) {
-    img1.canvas = document.getElementById("img1Canvas");
-    img2.canvas = document.getElementById("img2Canvas");
+    img1.canvas = img1Canvas;
+    img2.canvas = img2Canvas;
     img1.canvas.style.display = "block";
     img2.canvas.style.display = "block";
     img1.onload = drawImage;
@@ -27,6 +29,8 @@ function drawImage() {
   let canvas = this.canvas;
   canvas.width = this.width;
   canvas.height = this.height;
+  img1Canvas.style.height = `${canvas.height * canvasDefaultWidth / canvas.width}px`;
+  img2Canvas.style.height = `${canvas.height * canvasDefaultWidth / canvas.width}px`;
   let ctx = canvas.getContext("2d");
   ctx.drawImage(this, 0, 0);
 }
