@@ -28,46 +28,14 @@
   2. Open `index.html` in your browser.
 
 ### Usage 
- 1. Click the <button style="  width: 8.3em;
-  height: 1.5em;
-  color: #ededed;
-  background:#2d2d2d;
-  font-size: 20px;
-  border: 2px solid #59595B;
-  border-radius: 13px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;">Upload images</button>button
- 2. Select 2 photos
- <img src="usage_/photos.jpg" width=500>
- 3.Choose reference image
- <img src="usage_/choose.jpg" width=500>
- 4. Click the <button style="  width: 8.3em;
-  height: 1.5em;
-  color: #ededed;
-  background:#2d2d2d;
-  font-size: 20px;
-  border: 2px solid #59595B;
-  border-radius: 13px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;">Find difference</button> button
+ 1. Click the "Upload photos" button
+ 2.Select 2 photos <img src="usage_/photos.jpg">  
+ 3. Choose reference image <img src="usage_/choose.jpg">  
+ 4. Click the "Find difference" button  
  5. Choose the part you want to add
- <img src="usage_/blobs.jpg" width=500>
- 6. Click the <button style="  width: 8.3em;
-  height: 1.5em;
-  color: #ededed;
-  background:#2d2d2d;
-  font-size: 20px;
-  border: 2px solid #59595B;
-  border-radius: 13px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;">Blend</button> button
- 7. Enjoy the result :heart:
+ <img src="usage_/blobs.jpg">  
+ 6. Click the "Blend" button  
+ 7. Enjoy the result :heart:  
 
 
 
