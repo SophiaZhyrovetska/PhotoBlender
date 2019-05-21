@@ -28,13 +28,15 @@
   2. Open `index.html` in your browser.
 
 ### Usage 
- 1. Click the `Upload photos` button
- 2.Select 2 photos <img src="usage_/photos.jpg" width="500">  
- 3. Choose reference image <img src="usage_/choose.jpg" width="500">  
- 4. Click the `Find difference` button  
+ 1. Click the "Upload photos" button  
+ 2. Select 2 photos
+ <img src="usage_/photos.jpg" width="700">  
+ 3. Choose reference image
+ <img src="usage_/choose.jpg" width="700" >  
+ 4. Click the "Find difference" button  
  5. Choose the part you want to add
- <img src="usage_/blobs.jpg" width="500">  
- 6. Click the `Blend` button  
+ <img src="usage_/blobs.jpg" width="700">  
+ 6. Click the "Blend" button
  7. Enjoy the result :heart:  
 
 
