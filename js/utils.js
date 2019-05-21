@@ -19,7 +19,7 @@ function getChannels(imageData){
 function matrixToCanvas(matrix, rows, cols, imageData) {
     let pxl = 0;
     for (let i = 0; i < rows*cols; i++) {
-        let color = Math.floor(matrix.data[i]) * 2;
+        let color = Math.floor(matrix.data[i]) * 5;
         imageData.data[pxl++] = color;
         imageData.data[pxl++] = color;
         imageData.data[pxl++] = color;

@@ -1,18 +1,4 @@
 #File-upload-button__to-hide {
-    display: none;
+  display: none;
 }
-.File-upload-button {
-    height: 1.8em;
-    color: #ededed;
-    background: transparent;
-    transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out, background 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.15s ease-in-out;
-    font-size: 15px;
-    border: 2px solid #3f414c;
-    border-radius: 3px;
-    display: inline-flex;
-    align-items: center;
-    padding: 5px;
-}
-.File-upload-button:hover {
-    background-color: #3f414c;
-}
+/*# sourceMappingURL=File-upload-button.css.map */

@@ -1,0 +1,21 @@
+.Button {
+  width: 8.3em;
+  height: 4em;
+  color: #ededed;
+  background: transparent;
+  transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out, background 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-size: 20px;
+  border: 2px solid #59595B;
+  border-radius: 13px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+}
+.Button:hover {
+  background-color: #202020;
+}
+.Button--hidden {
+  display: none;
+}
+/*# sourceMappingURL=Button.css.map */

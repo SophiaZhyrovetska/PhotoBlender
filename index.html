@@ -3,30 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <title>Title</title>
-    <link rel="stylesheet" href="style/canvas.css" />
-    <link rel="stylesheet" href="style/File-upload-button.css" />
+    <link rel="stylesheet" href="style/flex-16-grid.css" />
+    <link rel="stylesheet" href="style/Layout.css" />
+    <link rel="stylesheet" href="style/Logo.css" />
     <link rel="stylesheet" href="style/common.css" />
+    <link rel="stylesheet" href="style/File-upload-button.css" />
+    <link rel="stylesheet" href="style/Button.css">
+    <link rel="stylesheet" href="style/Canvas.css">
   </head>
   <body>
-    <label
-      for="File-upload-button__to-hide"
-      class="File-upload-button Header__file-upload-button"
-      >Upload image</label
-    >
-    <input id="File-upload-button__to-hide" type="file" multiple /><canvas
-      id="img1Canvas"
-    ></canvas
-    ><canvas id="img2Canvas"></canvas><canvas id="maskCanvas"></canvas
-    ><canvas id="resultCanvas"></canvas>
-<!--    <canvas id="myCanvas" width="1500" height="1000"></canvas>-->
-    <script src="helpers/jsfeat.js"></script>
-    <script src="helpers/numeric-1.2.6.min.js"></script>
-    <script src="utils.js"></script>
-    <script src="findDifference.js"></script>
-    <script src="findBlobs.js"></script>
-    <script src="position.js"></script>
-    <script src="delegate.js"></script>
-    <script src="poissonBlendImages.js"></script>
-    <script src="index.js"></script>
+    <div class="Grid Layout">
+      <div class="Grid__row">
+        <h1 class="Layout__logo Logo Logo--insetshadow Grid__cell_14 Grid__cell_push-1">
+          PhotoBlender
+        </h1>
+        <h2 class="Layout__text Layout__text--subtitle Grid__cell_6 Grid__cell_push-5">New era of photo editing</h2>
+      </div>
+      <div class="Grid__row">
+        <label
+          for="File-upload-button__to-hide"
+          class="Button Layout__file-upload-button Grid__cell_2 Grid__cell_push-7"
+          >Upload images</label
+        >
+        <input id="File-upload-button__to-hide" type="file" multiple />
+      </div>
+        <div class="Grid__row Layout__text-row">
+            <h3 class="Layout__text Layout__text--hidden Grid__cell_6 Grid__cell_push-5">Choose a reference image</h3>
+        </div>
+      <div class="Grid__row">
+        <canvas
+          class="Layout__canvas Canvas Canvas--half-paged Grid__cell_8"
+          id="img1Canvas"
+        ></canvas>
+        <canvas
+          class="Layout__canvas Canvas Canvas--half-paged Grid__cell_8"
+          id="img2Canvas"
+        ></canvas>
+      </div>
+      <div class="Grid__row Layout__find-difference">
+      </div>
+      <div class="Grid__row Grid__row--centered-content">
+        <canvas class="Layout__canvas Canvas" id="maskCanvas"></canvas>
+      </div>
+      <div class="Grid__row Layout__blend">
+        <button class="Button Button--blend Button--hidden Layout__button Grid__cell_2 Grid__cell_push-7">Blend</button>
+      </div>
+      <div class="Grid__row Grid__row--centered-content">
+        <canvas class="Layout__canvas Canvas" id="resultCanvas"></canvas>
+      </div>
+
+      <script src="helpers/jsfeat.js"></script>
+      <script src="helpers/numeric-1.2.6.min.js"></script>
+      <script src="js/utils.js"></script>
+      <script src="js/findDifference.js"></script>
+      <script src="js/findBlobs.js"></script>
+      <script src="js/position.js"></script>
+      <script src="js/delegate.js"></script>
+      <script src="js/poissonBlendImages.js"></script>
+      <script src="js/index.js"></script>
+    </div>
   </body>
 </html>

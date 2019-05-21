@@ -1,0 +1,26 @@
+.Layout {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #2d2d2d;
+}
+.Layout__logo {
+  margin-top: 25px;
+}
+.Layout__text {
+  color: #59595b;
+  letter-spacing: 0.1em;
+  font-weight: normal;
+  font-size: 26px;
+  text-align: center;
+}
+.Layout__text--subtitle {
+  font-style: italic;
+}
+.Layout__text--hidden {
+  display: none;
+}
+.Layout__file-upload-button {
+  margin-top: 150px;
+}
+/*# sourceMappingURL=Layout.css.map */

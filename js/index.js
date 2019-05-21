@@ -5,19 +5,22 @@ let maskCanvas = document.getElementById("maskCanvas");
 let resultCanvas = document.getElementById("resultCanvas");
 let img1 = new Image();
 let img2 = new Image();
+const canvasDefaultWidth = 654;
 
 document.getElementById("File-upload-button__to-hide").onchange = function(e) {
-
-  img1.canvas = document.getElementById("img1Canvas");
-  img2.canvas = document.getElementById("img2Canvas");
-  img1.onload = drawImage;
-  img2.onload = drawImage;
-  img1.src = URL.createObjectURL(this.files[0]);
-  img2.src = URL.createObjectURL(this.files[1]);
-  let button = document.createElement("button");
-  button.innerHTML = "Find difference";
-  button.className = "Difference-button";
-  document.body.insertBefore(button, maskCanvas);
+    img1.canvas = document.getElementById("img1Canvas");
+    img2.canvas = document.getElementById("img2Canvas");
+    img1.canvas.style.display = "block";
+    img2.canvas.style.display = "block";
+    img1.onload = drawImage;
+    img2.onload = drawImage;
+    img1.src = URL.createObjectURL(this.files[0]);
+    img2.src = URL.createObjectURL(this.files[1]);
+    document.querySelector(".Layout__text--hidden").classList.remove("Layout__text--hidden");
+    let button = document.createElement("button");
+    button.innerHTML = "Find difference";
+    button.className = "Button Button--difference Layout__button Grid__cell_2 Grid__cell_push-7";
+    document.querySelector(".Layout__find-difference").appendChild(button);
 };
 
 function drawImage() {
@@ -29,10 +32,11 @@ function drawImage() {
 }
 
 let removeImg1Select = delegateEvent(document, "#img1Canvas", "click", () => {
+    console.log(1);
   let img1Canvas = document.getElementById("img1Canvas");
-  img1Canvas.classList.add("canvas--selected");
+  img1Canvas.classList.add("Canvas--selected");
   let img2Canvas = document.getElementById("img2Canvas");
-  img2Canvas.classList.remove("canvas--selected");
+  img2Canvas.classList.remove("Canvas--selected");
   refImage.canvas = img1Canvas;
   otherImage.canvas = img2Canvas;
     refImage.img = img1;
@@ -40,22 +44,21 @@ let removeImg1Select = delegateEvent(document, "#img1Canvas", "click", () => {
 });
 let removeImg2Select = delegateEvent(document, "#img2Canvas", "click", () => {
   let img1Canvas = document.getElementById("img1Canvas");
-  img1Canvas.classList.remove("canvas--selected");
+  img1Canvas.classList.remove("Canvas--selected");
   let img2Canvas = document.getElementById("img2Canvas");
-  img2Canvas.classList.add("canvas--selected");
+  img2Canvas.classList.add("Canvas--selected");
   refImage.canvas = img2Canvas;
   otherImage.canvas = img1Canvas;
     refImage.img = img2;
     otherImage.img = img1;
 });
 
-let removeButtonSelect = delegateEvent(
+let removeButtonDifference = delegateEvent(
   document,
-  ".Difference-button",
+  ".Button--difference",
   "click",
   () => {
-    removeImg1Select();
-    removeImg2Select();
+      maskCanvas.style.display = "block";
     let width = refImage.canvas.width;
     let height = refImage.canvas.height;
     let threshold = 23;
@@ -70,20 +73,15 @@ let removeButtonSelect = delegateEvent(
       width,
       height
     );
-    console.log(diffMatrix.data);
-    console.log(diffMatrix.rows, diffMatrix.cols);
-    //   let c = document.getElementById("myCanvas").getContext("2d");
-    // c.putImageData(matrixToCanvas(diffMatrix, diffMatrix.rows, diffMatrix.cols, c.getImageData(0,0, diffMatrix.cols, diffMatrix.rows)),0,0);
     let blobs = findBlobs(diffMatrix.data, width, height, threshold);
     let blobsToAdd = new Set();
     maskCanvas.width = width;
     maskCanvas.height = height;
     maskCanvas.blobs = blobs.data;
-    console.log(blobs);
     maskCanvas.blobsToAdd = blobsToAdd;
     ctx.putImageData(
       getMask(
-        blobs,
+        blobs.data,
         blobsToAdd,
         width,
         height,
@@ -92,10 +90,8 @@ let removeButtonSelect = delegateEvent(
       0,
       0
     );
-      let button = document.createElement("button");
-      button.innerHTML = "Blend";
-      button.className = "Blend-button";
-      document.body.insertBefore(button, resultCanvas);
+
+      document.querySelector(".Button--blend").classList.remove("Button--hidden");
   }
 );
 
@@ -136,7 +132,8 @@ maskCanvas.addEventListener(
   false
 );
 
-delegateEvent(document, ".Blend-button", "click", () => {
+delegateEvent(document, ".Button--blend", "click", () => {
+    resultCanvas.style.display = "block";
     resultCanvas.width = maskCanvas.width;
     resultCanvas.height = maskCanvas.height;
     let base_size = {width:resultCanvas.width, height:resultCanvas.height};

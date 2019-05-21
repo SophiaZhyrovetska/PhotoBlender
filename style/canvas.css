@@ -1,3 +1,12 @@
-.canvas--selected{
-    border: 4px solid crimson;
+.Canvas {
+  display: none;
 }
+.Canvas--half-paged {
+  width: 654px;
+}
+.Canvas--selected {
+  -webkit-box-shadow: 10px 10px 21px 0px #0a0a0a;
+  -moz-box-shadow: 10px 10px 21px 0px #0a0a0a;
+  box-shadow: 10px 10px 21px 0px #0a0a0a;
+}
+/*# sourceMappingURL=Canvas.css.map */
