@@ -61,7 +61,7 @@ let removeButtonDifference = delegateEvent(
       maskCanvas.style.display = "block";
     let width = refImage.canvas.width;
     let height = refImage.canvas.height;
-    let threshold = 23;
+    let threshold = 27;
     let ctx = maskCanvas.getContext("2d");
     let diffMatrix = findDifference(
       getChannels(
