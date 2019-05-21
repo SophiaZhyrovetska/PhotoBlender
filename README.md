@@ -14,10 +14,6 @@
 
 ## Getting started
 
-### Prerequisites
-| **Component**                 |
-|------------------------------	|
-| Browser  	|     :blush:  	|
 
   
 ### Installing
